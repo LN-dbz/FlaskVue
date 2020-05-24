@@ -17,7 +17,7 @@ def hello(name, url):
 
 # 运行开发环境
 @manager.command
-def dun_dev():
+def run_dev():
     app.run(debug=True)
 
 

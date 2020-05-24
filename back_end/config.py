@@ -19,6 +19,8 @@ class BaseConfig:  # 基本配置类
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASKY_COMMENTS_PER_PAGE = 30
     FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///db/users.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     pass
 
