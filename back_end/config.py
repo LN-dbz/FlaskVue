@@ -3,7 +3,13 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class BaseConfig:  # 基本配置类
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'qwertyuio12345678'  # 加密的密钥
+    # SESSION_USE_SIGNER = True  # 是否对发送到浏览器上session的cookie值进行加密
+    SESSION_TYPE = 'null'  # session类型为redis
+    # SESSION_KEY_PREFIX = 'session:'  # 保存到session中的值的前缀
+    PERMANENT_SESSION_LIFETIME = 7200  # 失效时间 秒
+    # SESSION_REDIS = redis.Redis(host='127.0.0.1', port='6379', db=4)  # redi
+    JSON_AS_ASCII = False
     SSL_DISABLE = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_RECORD_QUERIES = True

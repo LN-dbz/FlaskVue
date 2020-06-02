@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import session, abort
+from flask import session, abort, redirect
 
 Permission_code = [0X01, 0X02]
 
@@ -26,13 +26,11 @@ def permission_required(asd):
         @wraps(f)
         def decorated_function(*args, **kwargs):
             try:
-                print(asd)
-                print(args)
-                print(kwargs)
-                # current_user = Users.query.filter_by(id=session.get('user_id')).first()
-                #
-                # if not current_user and permission_can(current_user, permission):
-                #     abort(403)
+                print(session)
+                if 'user_id' in session:
+                    print(session)
+                else:
+                    return redirect('/login')
                 return f(*args, **kwargs)
             except:
                 abort(403)
